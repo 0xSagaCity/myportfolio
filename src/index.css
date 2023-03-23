@@ -1,1 +1,45 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+:root {
+    /* Typeface */
+    --font: "Space Grotesk", sans-serif;
+    /* Font Sizes */
+    --fs-small: 0.618rem;
+    --fs-reg: 1rem;
+    --fs-big: 1.618rem;
+    --fs-bigger: 2.618rem;
+    --fs-biggest: 4.236rem;
+    --fs-huge: 6.854rem;
+    /* Font Weights */
+    --fw-bold: 700;
+    --fw-reg: 400;
+    --fw-light: 300;
+}
+
+.dark-theme {
+    --co-primary: 195, 13%, 6%;
+    --co-secondary: 43, 51%, 96%;
+    --co-accent: 358, 100%, 31%;
+}
+
+.light-theme {
+    --co-primary: 43, 51%, 96%;
+    --co-secondary: 195, 13%, 6%;
+    --co-accent: 6, 96%, 59%;
+}
+
+.app {
+    min-height: 100vh;
+    font-family: var(--font);
+    background-color: hsla(var(--co-primary), 100%);
+    font-weight: var(--fw-reg);
+    color: hsla(var(--co-secondary), 80%);
+    padding-inline: 50px;
+    padding-block: 25px;
+}

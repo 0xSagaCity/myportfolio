@@ -1,0 +1,116 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: var(--fs-big);
+    font-weight: var(--fw-reg);
+    color: hsla(var(--co-secondary), 70%);
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 48px;
+    transform: translateY(-100%);
+}
+
+.link {
+    all: unset;
+    font-size: var(--fs-big);
+    font-weight: var(--fw-bold);
+    overflow: hidden;
+}
+
+.link-line {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: hsla(var(--co-accent), 100%);
+}
+
+.link-wrapper {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.link {
+    position: relative;
+    cursor: pointer;
+}
+
+.link-circle {
+    height: 8px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    transition: all 900ms;
+}
+
+/* Active link */
+.active-link {
+    color: hsla(var(--co-secondary), 60%);
+    transition: color 900ms;
+}
+
+.active-link > .link-circle {
+    background-color: hsla(var(--co-accent), 60%);
+}
+
+.active-link .link-line {
+    background-color: hsla(var(--co-secondary), 40%);
+}
+
+/* Inactive Link */
+.inactive-link {
+    color: hsla(var(--co-secondary), 30%);
+    transition: color 900ms;
+}
+
+.inactive-link > .link-circle {
+    background-color: hsla(var(--co-secondary), 30%);
+}
+
+.inactive-link .link-line {
+    background-color: hsla(var(--co-secondary), 0%);
+}
+
+/* Hover animation */
+.navigation:hover .active-link {
+    color: hsla(var(--co-secondary), 100%);
+}
+
+.navigation:hover .inactive-link {
+    color: hsla(var(--co-secondary), 70%);
+}
+
+.navigation:hover .active-link .link-circle {
+    background-color: hsla(var(--co-accent), 100%);
+}
+
+.navigation:hover .active-link .link-line {
+    background-color: hsla(var(--co-accent), 80%);
+}
+
+/* Toggle theme */
+.theme-toggle {
+    border: 1px solid red;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
