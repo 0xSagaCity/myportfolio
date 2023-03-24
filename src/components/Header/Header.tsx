@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { MoonIcon, SunIcon } from "../Icons/Icons";
 import "./Header.css";
 
 export function Header({
@@ -53,7 +54,7 @@ export function Header({
                 }}
                 className="theme-toggle"
             >
-                CO
+                {currentTheme === "light" ? <MoonIcon /> : <SunIcon />}
             </button>
         </header>
     );

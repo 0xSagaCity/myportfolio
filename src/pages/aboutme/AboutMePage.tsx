@@ -1,6 +1,46 @@
+import { useRef } from "react";
+import { useOutletContext } from "react-router-dom";
 import "./AboutMePage.css";
+import gsap from "gsap";
 
 export function AboutMePage() {
+    const exploreButtonRef = useRef<HTMLButtonElement>(null);
+    const {
+        cursorX,
+        cursorY,
+        isStuck,
+        setIsStuck,
+    }: {
+        cursorX: number;
+        cursorY: number;
+        isStuck: boolean;
+        setIsStuck: React.Dispatch<React.SetStateAction<boolean>>;
+    } = useOutletContext();
+
+    function exploreButtonHoverEnter() {
+        setIsStuck(true);
+        const exploreButtonCords =
+            exploreButtonRef.current?.getBoundingClientRect();
+        gsap.to(".cursor--outer", {
+            x: exploreButtonCords?.x,
+            y: exploreButtonCords?.y,
+            width: exploreButtonRef.current?.clientWidth,
+            height: exploreButtonRef.current?.clientHeight,
+            duration: 0.6,
+        });
+    }
+
+    function exploreButtonHoverExit() {
+        setIsStuck(false);
+        gsap.to(".cursor--outer", {
+            height: "30px",
+            width: "30px",
+            x: cursorX,
+            y: cursorY,
+            duration: 0.2,
+        });
+    }
+
     return (
         <main className="aboutme-container">
             <section className="aboutme-intro">
@@ -94,7 +134,12 @@ export function AboutMePage() {
                         </div>
                     </div>
                     <div className="connect-right">
-                        <button className="explore-button cursor-hover-effect">
+                        <button
+                            ref={exploreButtonRef}
+                            className="explore-button cursor-hover-effect"
+                            onMouseEnter={() => exploreButtonHoverEnter()}
+                            onMouseLeave={() => exploreButtonHoverExit()}
+                        >
                             <span className="explore-button-text">
                                 Explore my
                             </span>

@@ -24,6 +24,7 @@
     width: 150px;
     object-fit: cover;
     object-position: top;
+    filter: grayscale(1);
     transition: all 600ms ease-out;
 }
 

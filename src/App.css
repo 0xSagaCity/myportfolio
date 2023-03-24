@@ -1,0 +1,23 @@
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cursor--inner {
+    height: 6px;
+    width: 6px;
+    top: -3px;
+    left: -3px;
+    background-color: hsla(var(--co-secondary), 100%);
+    z-index: 11000;
+}
+
+.cursor--outer {
+    height: 30px;
+    width: 30px;
+    border: 1px solid hsla(var(--co-accent), 100%);
+    z-index: 22000;
+}
