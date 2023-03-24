@@ -6,7 +6,7 @@ export function Header({
     setCurrentTheme,
 }: {
     currentTheme: "dark" | "light";
-    setCurrentTheme: React.Dispatch<string>;
+    setCurrentTheme: React.Dispatch<React.SetStateAction<"dark" | "light">>;
 }): JSX.Element {
     return (
         <header>

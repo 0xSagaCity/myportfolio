@@ -16,7 +16,7 @@ const router = createBrowserRouter([
                 element: <WorkPage />,
             },
             {
-                path: "*",
+                path: "/",
                 element: <AboutMePage />,
             },
         ],
