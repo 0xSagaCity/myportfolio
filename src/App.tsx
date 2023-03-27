@@ -9,17 +9,18 @@ function App() {
         "dark" | "light" | "default"
     >("default");
 
-    const [isStuck, setIsStuck] = useState(false);
-    const [{ cursorX, cursorY }, setCursorCords] = useState({
+    const isStuck = useRef(false);
+    const cursorCords = useRef({
         cursorX: -100,
         cursorY: -100,
     });
     const cursorInner = useRef<HTMLDivElement>(null);
     const cursorOuter = useRef<HTMLDivElement>(null);
+    const cursorAnimationId = useRef(0);
 
     useLayoutEffect(() => {
         const mouseMoveEventListener = (event: MouseEvent) => {
-            setCursorCords({ cursorX: event.x, cursorY: event.y });
+            cursorCords.current = { cursorX: event.x, cursorY: event.y };
         };
         window.addEventListener("mousemove", mouseMoveEventListener);
         return () => {
@@ -27,25 +28,32 @@ function App() {
         };
     }, []);
 
-    useLayoutEffect(() => {
+    function cursorAnimationLoop() {
         gsap.set(".cursor--inner", {
-            x: cursorX,
-            y: cursorY,
+            x: cursorCords.current.cursorX,
+            y: cursorCords.current.cursorY,
         });
-        if (!isStuck) {
-            gsap.set(".cursor--outer", {
+        if (!isStuck.current) {
+            gsap.to(".cursor--outer", {
                 height: "40px",
                 width: "40px",
+                duration: 0.4,
             });
             if (cursorOuter.current) {
                 gsap.to(".cursor--outer", {
-                    x: cursorX - cursorOuter.current.clientHeight / 2 - 1,
-                    y: cursorY - cursorOuter.current.clientWidth / 2 - 1,
-                    duration: 0.16,
+                    x: cursorCords.current.cursorX - 20,
+                    y: cursorCords.current.cursorY - 20,
+                    duration: 0.4,
                 });
             }
         }
-    }, [cursorX, cursorY, isStuck]);
+        cursorAnimationId.current = requestAnimationFrame(cursorAnimationLoop);
+    }
+
+    useLayoutEffect(() => {
+        cursorAnimationId.current = requestAnimationFrame(cursorAnimationLoop);
+        return () => cancelAnimationFrame(cursorAnimationId.current);
+    }, []);
 
     //Theme logic
     useLayoutEffect(() => {
@@ -80,7 +88,7 @@ function App() {
                 currentTheme={currentTheme}
                 setCurrentTheme={setCurrentTheme}
             />
-            <Outlet context={{ cursorX, cursorY, isStuck, setIsStuck }} />
+            <Outlet context={{ cursorCords, isStuck }} />
             <div ref={cursorInner} className="cursor cursor--inner"></div>
             <div ref={cursorOuter} className="cursor cursor--outer"></div>
         </div>

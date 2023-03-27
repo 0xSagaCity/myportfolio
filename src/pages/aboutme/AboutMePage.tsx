@@ -6,16 +6,18 @@ import "./AboutMePage.css";
 export function AboutMePage() {
     const exploreButtonRef = useRef<HTMLButtonElement>(null);
     const {
-        cursorX,
-        cursorY,
-        setIsStuck,
+        cursorCords,
+        isStuck,
     }: {
-        cursorX: number;
-        cursorY: number;
-        setIsStuck: React.Dispatch<React.SetStateAction<boolean>>;
+        cursorCords: React.MutableRefObject<{
+            cursorX: number;
+            cursorY: number;
+        }>;
+        isStuck: React.MutableRefObject<boolean>;
     } = useOutletContext();
 
     function exploreButtonHoverEnter() {
+        isStuck.current = true;
         const exploreButtonCords =
             exploreButtonRef.current?.getBoundingClientRect();
         gsap.to(".cursor--outer", {
@@ -23,22 +25,19 @@ export function AboutMePage() {
             y: exploreButtonCords?.y,
             width: exploreButtonRef.current?.clientWidth,
             height: exploreButtonRef.current?.clientHeight,
-            duration: 0.3,
+            duration: 0.4,
         });
-        setIsStuck(true);
     }
 
     function exploreButtonHoverExit() {
-        gsap.set(".cursor--outer", {
+        gsap.to(".cursor--outer", {
             height: "40px",
             width: "40px",
+            x: cursorCords.current.cursorX - 20,
+            y: cursorCords.current.cursorY - 20,
+            duration: 0.4,
         });
-        gsap.to(".cursor--outer", {
-            x: cursorX - 19,
-            y: cursorY - 19,
-            duration: 0.2,
-        });
-        setIsStuck(false);
+        isStuck.current = false;
     }
 
     return (
