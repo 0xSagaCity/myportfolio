@@ -1,3 +1,4 @@
+//Theme Icons
 export function SunIcon() {
     return (
         <svg
@@ -28,4 +29,34 @@ export function MoonIcon() {
             />
         </svg>
     );
+}
+
+//Technology Icons
+
+export function HTMLIcon() {
+    return <> </>;
+}
+
+export function CSSIcon() {
+    return <></>;
+}
+
+export function JavascriptIcon() {
+    return <></>;
+}
+
+export function ReactIcon() {
+    return <></>;
+}
+
+export function GSAPIcon() {
+    return <></>;
+}
+
+export function FramerMotionIcon() {
+    return <></>;
+}
+
+export function PeerJSIcon() {
+    return <></>;
 }

@@ -1,24 +1,21 @@
+import gsap from "gsap";
 import { useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import "./AboutMePage.css";
-import gsap from "gsap";
 
 export function AboutMePage() {
     const exploreButtonRef = useRef<HTMLButtonElement>(null);
     const {
         cursorX,
         cursorY,
-        isStuck,
         setIsStuck,
     }: {
         cursorX: number;
         cursorY: number;
-        isStuck: boolean;
         setIsStuck: React.Dispatch<React.SetStateAction<boolean>>;
     } = useOutletContext();
 
     function exploreButtonHoverEnter() {
-        setIsStuck(true);
         const exploreButtonCords =
             exploreButtonRef.current?.getBoundingClientRect();
         gsap.to(".cursor--outer", {
@@ -26,19 +23,22 @@ export function AboutMePage() {
             y: exploreButtonCords?.y,
             width: exploreButtonRef.current?.clientWidth,
             height: exploreButtonRef.current?.clientHeight,
-            duration: 0.6,
+            duration: 0.3,
         });
+        setIsStuck(true);
     }
 
     function exploreButtonHoverExit() {
-        setIsStuck(false);
+        gsap.set(".cursor--outer", {
+            height: "40px",
+            width: "40px",
+        });
         gsap.to(".cursor--outer", {
-            height: "30px",
-            width: "30px",
-            x: cursorX,
-            y: cursorY,
+            x: cursorX - 19,
+            y: cursorY - 19,
             duration: 0.2,
         });
+        setIsStuck(false);
     }
 
     return (

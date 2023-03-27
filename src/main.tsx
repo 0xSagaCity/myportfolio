@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import { PageTransition } from "./components/PageTransition/PageTransition";
 import "./index.css";
 import { AboutMePage } from "./pages/aboutme/AboutMePage";
 import { WorkPage } from "./pages/work/WorkPage";
@@ -13,11 +14,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "work",
-                element: <WorkPage />,
+                element: (
+                    <PageTransition>
+                        <WorkPage />
+                    </PageTransition>
+                ),
             },
             {
                 path: "/",
-                element: <AboutMePage />,
+                element: (
+                    <PageTransition>
+                        <AboutMePage />
+                    </PageTransition>
+                ),
             },
         ],
     },

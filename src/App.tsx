@@ -1,13 +1,14 @@
+import gsap from "gsap";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/Header/Header";
-import gsap from "gsap";
 
 function App() {
-    const [currentTheme, setCurrentTheme] = useState<"dark" | "light">("light");
+    const [currentTheme, setCurrentTheme] = useState<
+        "dark" | "light" | "default"
+    >("default");
 
-    //TODO Cursor Effect (Might extract to a component later ??? )
     const [isStuck, setIsStuck] = useState(false);
     const [{ cursorX, cursorY }, setCursorCords] = useState({
         cursorX: -100,
@@ -17,33 +18,63 @@ function App() {
     const cursorOuter = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
+        const mouseMoveEventListener = (event: MouseEvent) => {
+            setCursorCords({ cursorX: event.x, cursorY: event.y });
+        };
+        window.addEventListener("mousemove", mouseMoveEventListener);
+        return () => {
+            window.removeEventListener("mousemove", mouseMoveEventListener);
+        };
+    }, []);
+
+    useLayoutEffect(() => {
         gsap.set(".cursor--inner", {
             x: cursorX,
             y: cursorY,
         });
         if (!isStuck) {
             gsap.set(".cursor--outer", {
-                height: "30px",
-                width: "30px",
+                height: "40px",
+                width: "40px",
             });
-            if (cursorOuter.current !== null && cursorInner.current !== null) {
+            if (cursorOuter.current) {
                 gsap.to(".cursor--outer", {
-                    x: cursorX - cursorOuter.current.clientHeight / 2,
-                    y: cursorY - cursorOuter.current.clientWidth / 2,
-                    duration: 0.3,
+                    x: cursorX - cursorOuter.current.clientHeight / 2 - 1,
+                    y: cursorY - cursorOuter.current.clientWidth / 2 - 1,
+                    duration: 0.16,
                 });
             }
         }
-    }, [cursorX, cursorY]);
+    }, [cursorX, cursorY, isStuck]);
+
+    //Theme logic
+    useLayoutEffect(() => {
+        let themeInMemory = localStorage.getItem("currentTheme");
+        if (themeInMemory === "light") {
+            setCurrentTheme("light");
+            localStorage.setItem("currentTheme", "light");
+        } else if (themeInMemory === "dark") {
+            setCurrentTheme("dark");
+            localStorage.setItem("currentTheme", "dark");
+        } else if (themeInMemory === "default") {
+            if (
+                window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches
+            ) {
+                setCurrentTheme("dark");
+                localStorage.setItem("currentTheme", "dark");
+            } else {
+                setCurrentTheme("light");
+                localStorage.setItem("currentTheme", "light");
+            }
+        }
+    }, []);
 
     return (
         <div
             className={
                 currentTheme === "light" ? "app light-theme" : "app dark-theme"
             }
-            onMouseMove={(e) => {
-                setCursorCords({ cursorX: e.clientX, cursorY: e.clientY });
-            }}
         >
             <Header
                 currentTheme={currentTheme}

@@ -16,8 +16,9 @@
 }
 
 .cursor--outer {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border: 1px solid hsla(var(--co-accent), 100%);
+    background-color: hsla(var(--co-accent), 10%);
     z-index: 22000;
 }

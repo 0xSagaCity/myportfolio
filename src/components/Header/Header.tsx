@@ -6,8 +6,10 @@ export function Header({
     currentTheme,
     setCurrentTheme,
 }: {
-    currentTheme: "dark" | "light";
-    setCurrentTheme: React.Dispatch<React.SetStateAction<"dark" | "light">>;
+    currentTheme: "dark" | "light" | "default";
+    setCurrentTheme: React.Dispatch<
+        React.SetStateAction<"dark" | "light" | "default">
+    >;
 }): JSX.Element {
     return (
         <header>
@@ -49,6 +51,10 @@ export function Header({
             <button
                 onClick={() => {
                     setCurrentTheme(
+                        currentTheme === "light" ? "dark" : "light"
+                    );
+                    localStorage.setItem(
+                        "currentTheme",
                         currentTheme === "light" ? "dark" : "light"
                     );
                 }}

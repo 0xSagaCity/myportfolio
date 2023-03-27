@@ -97,7 +97,7 @@ export function WorkPage() {
                 <div className="project-title--container">
                     <div className="project-title--wrapper">
                         <div className="project-index--container">
-                            <span className="index-number">01</span>
+                            <span className="index-number">03</span>
                             <span className="index-line"></span>
                             <span className="index-total">03</span>
                         </div>
