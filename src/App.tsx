@@ -38,12 +38,14 @@ function App() {
                 height: "40px",
                 width: "40px",
                 duration: 0.4,
+                ease: "power4.easeIn",
             });
             if (cursorOuter.current) {
                 gsap.to(".cursor--outer", {
                     x: cursorCords.current.cursorX - 20,
                     y: cursorCords.current.cursorY - 20,
                     duration: 0.4,
+                    ease: "power4.easeIn",
                 });
             }
         }
@@ -84,11 +86,15 @@ function App() {
                 currentTheme === "light" ? "app light-theme" : "app dark-theme"
             }
         >
-            <Header
-                currentTheme={currentTheme}
-                setCurrentTheme={setCurrentTheme}
-            />
-            <Outlet context={{ cursorCords, isStuck }} />
+            <div className="app-wrapper">
+                <Header
+                    cursorCords={cursorCords}
+                    isStuck={isStuck}
+                    currentTheme={currentTheme}
+                    setCurrentTheme={setCurrentTheme}
+                />
+                <Outlet context={{ cursorCords, isStuck }} />
+            </div>
             <div ref={cursorInner} className="cursor cursor--inner"></div>
             <div ref={cursorOuter} className="cursor cursor--outer"></div>
         </div>

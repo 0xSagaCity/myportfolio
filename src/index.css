@@ -23,15 +23,15 @@
 }
 
 .dark-theme {
-    --co-primary: 195, 13%, 6%;
+    --co-primary: 195, 13%, 8%;
     --co-secondary: 43, 51%, 96%;
-    --co-accent: 358, 100%, 31%;
+    --co-accent: 15, 100%, 40%;
 }
 
 .light-theme {
     --co-primary: 43, 51%, 96%;
-    --co-secondary: 195, 13%, 6%;
-    --co-accent: 6, 96%, 59%;
+    --co-secondary: 195, 13%, 8%;
+    --co-accent: 15, 100%, 50%;
 }
 
 .app {

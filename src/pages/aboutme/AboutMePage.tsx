@@ -25,7 +25,8 @@ export function AboutMePage() {
             y: exploreButtonCords?.y,
             width: exploreButtonRef.current?.clientWidth,
             height: exploreButtonRef.current?.clientHeight,
-            duration: 0.4,
+            duration: 0.8,
+            ease: "power2.out",
         });
     }
 
@@ -35,6 +36,7 @@ export function AboutMePage() {
             width: "40px",
             x: cursorCords.current.cursorX - 20,
             y: cursorCords.current.cursorY - 20,
+            ease: "power2.out",
             duration: 0.4,
         });
         isStuck.current = false;
