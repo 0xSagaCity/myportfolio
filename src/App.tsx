@@ -94,7 +94,7 @@ function App() {
                     currentTheme={currentTheme}
                     setCurrentTheme={setCurrentTheme}
                 />
-                <Outlet context={{ cursorCords, isStuck }} />
+                <Outlet context={{ isStuck }} />
             </div>
             <div ref={cursorInner} className="cursor cursor--inner"></div>
             <div ref={cursorOuter} className="cursor cursor--outer"></div>

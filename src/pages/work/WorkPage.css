@@ -85,14 +85,18 @@
 }
 
 .project-links {
+    width: max-content;
     margin-block-start: 1rem;
+    padding: 1rem;
     display: flex;
     gap: 3rem;
     align-items: flex-end;
+    border: 1px solid hsla(var(--co-secondary), 10%);
 }
 
 .project-live--container,
 .project-code--container {
+    all: unset;
     display: flex;
     gap: 1rem;
     cursor: pointer;
@@ -101,6 +105,11 @@
 .project-live--container > span:first-child,
 .project-code--container > span:first-child {
     border-bottom: 1px solid hsla(var(--co-secondary), 100%);
+}
+
+.project-live--container:hover,
+.project-code--container:hover {
+    color: hsla(var(--co-accent), 100%);
 }
 
 .link-indicator {

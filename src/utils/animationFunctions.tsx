@@ -3,7 +3,10 @@ import gsap from "gsap";
 interface animStuckType extends React.MutableRefObject<boolean> {}
 interface itemRefType
     extends React.RefObject<
-        HTMLButtonElement | HTMLDivElement | HTMLAnchorElement
+        | HTMLButtonElement
+        | HTMLDivElement
+        | HTMLAnchorElement
+        | HTMLImageElement
     > {}
 
 export function cursorElementEnter(
