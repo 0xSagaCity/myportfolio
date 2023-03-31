@@ -37,6 +37,7 @@ function App() {
             gsap.to(".cursor--outer", {
                 height: "40px",
                 width: "40px",
+                borderRadius: "50%",
                 duration: 0.4,
                 ease: "power4.easeIn",
             });

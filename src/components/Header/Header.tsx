@@ -2,10 +2,12 @@ import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { MoonIcon, SunIcon } from "../Icons/Icons";
 import "./Header.css";
-import gsap from "gsap";
+import {
+    cursorElementEnter,
+    cursorElementLeave,
+} from "../../utils/animationFunctions";
 
 export function Header({
-    cursorCords,
     isStuck,
     currentTheme,
     setCurrentTheme,
@@ -22,36 +24,8 @@ export function Header({
 }): JSX.Element {
     const aboutMeRef = useRef<HTMLAnchorElement>(null);
     const workRef = useRef<HTMLAnchorElement>(null);
+    const themeToggleRef = useRef<HTMLButtonElement>(null);
 
-    function addNavigationEnter(isWork: boolean) {
-        isStuck.current = true;
-        const linkBoundingRect = isWork
-            ? workRef.current?.getBoundingClientRect()
-            : aboutMeRef.current?.getBoundingClientRect();
-        gsap.to(".cursor--outer", {
-            height: linkBoundingRect?.height,
-            width: linkBoundingRect?.width,
-            x: linkBoundingRect?.x,
-            y: linkBoundingRect?.y,
-            borderRadius: "100rem",
-            duration: 0.4,
-            ease: "power2.out",
-        });
-    }
-    function addNavigationExit() {
-        isStuck.current = false;
-        gsap.set(".cursor--outer", {
-            height: "40px",
-            width: "40px",
-        });
-        gsap.to(".cursor--outer", {
-            x: cursorCords.current.cursorX - 20,
-            y: cursorCords.current.cursorY - 20,
-            borderRadius: "50%",
-            duration: 0.4,
-            ease: "power2.out",
-        });
-    }
     return (
         <header>
             <span className="logo">sp.</span>
@@ -60,10 +34,12 @@ export function Header({
                     to="/"
                     ref={aboutMeRef}
                     onMouseEnter={() => {
-                        addNavigationEnter(false);
+                        cursorElementEnter(isStuck, aboutMeRef, {
+                            borderRadius: "100rem",
+                        });
                     }}
                     onMouseLeave={() => {
-                        addNavigationExit();
+                        cursorElementLeave(isStuck, { borderRadius: "50%" });
                     }}
                     className={({ isActive, isPending }) =>
                         isPending
@@ -83,10 +59,12 @@ export function Header({
                     to="work"
                     ref={workRef}
                     onMouseEnter={() => {
-                        addNavigationEnter(true);
+                        cursorElementEnter(isStuck, workRef, {
+                            borderRadius: "100rem",
+                        });
                     }}
                     onMouseLeave={() => {
-                        addNavigationExit();
+                        cursorElementLeave(isStuck, { borderRadius: "50%" });
                     }}
                     className={({ isActive, isPending }) =>
                         isPending
@@ -104,6 +82,9 @@ export function Header({
                 </NavLink>
             </nav>
             <button
+                title={`Make theme ${
+                    currentTheme === "light" ? "dark" : "light"
+                }`}
                 onClick={() => {
                     setCurrentTheme(
                         currentTheme === "light" ? "dark" : "light"
@@ -113,7 +94,14 @@ export function Header({
                         currentTheme === "light" ? "dark" : "light"
                     );
                 }}
-                className="theme-toggle"
+                ref={themeToggleRef}
+                onMouseEnter={() => {
+                    cursorElementEnter(isStuck, themeToggleRef);
+                }}
+                onMouseLeave={() => {
+                    cursorElementLeave(isStuck);
+                }}
+                className="theme-toggle icon-container"
             >
                 {currentTheme === "light" ? <MoonIcon /> : <SunIcon />}
             </button>

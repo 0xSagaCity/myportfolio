@@ -24,6 +24,7 @@ nav {
 
 .link {
     all: unset;
+    min-height: 40px;
     font-size: var(--fs-big);
     font-weight: var(--fw-bold);
     overflow: hidden;
@@ -35,7 +36,7 @@ nav {
     width: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -100%);
     background: hsla(var(--co-accent), 100%);
 }
 
@@ -108,10 +109,19 @@ nav {
 .theme-toggle {
     border: none;
     background-color: transparent;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding: 10px;
+}
+
+.icon-path {
+    fill: hsla(var(--co-secondary), 100%);
+}
+
+.theme-toggle:hover .icon-path {
+    fill: hsla(var(--co-accent), 100%);
 }

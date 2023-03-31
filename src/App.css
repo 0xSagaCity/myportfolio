@@ -11,13 +11,14 @@
     width: 6px;
     top: -3px;
     left: -3px;
-    background-color: hsla(var(--co-secondary), 100%);
+    background-color: hsla(var(--co-secondary), 80%);
     z-index: 11000;
 }
 
 .cursor--outer {
     height: 40px;
     width: 40px;
-    border: 1px solid hsla(var(--co-accent), 100%);
+    border: 1px solid hsla(var(--co-accent), 70%);
+    background-color: hsla(var(--co-accent), 5%);
     z-index: 22000;
 }

@@ -48,6 +48,23 @@
     color: hsla(var(--co-secondary), 70%);
 }
 
+.aboutme-subtitle:hover .subtitle-emph,
+.aboutme-speak:hover .speak-emp {
+    color: hsla(var(--co-accent), 100%);
+}
+
+.greeting-emph,
+.greeting-hindi,
+.greeting-english {
+    display: inline-block;
+}
+
+.overflow-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    margin-inline-end: 1rem;
+}
+
 .greeting-english {
     font-weight: var(--fw-bold);
     color: hsla(var(--co-secondary), 100%);
@@ -58,10 +75,15 @@
     color: hsla(var(--co-secondary), 80%);
 }
 
-.greeting-emph,
-.subtitle-emp,
+.subtitle-emph,
 .speak-emp {
     color: hsla(var(--co-secondary), 100%);
+    transition: all 400ms ease-in;
+}
+
+.subtitle-emph,
+.speak-emp {
+    font-weight: var(--fw-bold);
 }
 
 .aboutme-subtitle {
@@ -124,16 +146,31 @@
 }
 
 .links-container {
-    height: 44px;
+    height: 48px;
     width: 100%;
-    background: hsla(var(--co-secondary), 80%);
+    padding: 4px;
+}
+
+.social-icons-inner {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     padding-block: 12px;
+    background: hsla(var(--co-secondary), 70%);
 }
 
 .social-icon {
+    height: 22px;
+    width: 22px;
     fill: hsla(var(--co-primary), 100%);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+
+.social-icon:hover {
+    fill: hsla(var(--co-accent), 100%);
+    transform: scale(1.2);
 }
 
 .connect-right {
@@ -152,7 +189,7 @@
     border: 1px solid hsla(var(--co-secondary), 100%);
     aspect-ratio: 1/1;
     border-radius: 50%;
-    transition: border 600ms ease-in;
+    transition: border 800ms ease-in;
     cursor: pointer;
 }
 
@@ -197,13 +234,18 @@
     height: 10px;
     width: 10px;
     background-color: hsla(var(--co-secondary), 100%);
+    transition: all 400ms ease-in;
+}
+
+.connect-right:hover .date-blip {
+    background-color: hsla(var(--co-accent), 70%);
 }
 
 .date-line {
     height: 8px;
     width: 100%;
     max-width: 15.2rem;
-    background-color: hsla(var(--co-secondary), 30%);
+    background-color: hsla(var(--co-secondary), 20%);
 }
 
 .hex-text {
