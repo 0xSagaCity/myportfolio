@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import "./AboutMePage.css";
 import gsap from "gsap";
@@ -49,6 +49,19 @@ export function AboutMePage() {
                 ease: "expo.easeIn",
             }
         );
+    }, []);
+
+    useEffect(() => {
+        gsap.set([".aboutme-intro", ".aboutme-title", ".aboutme-subtitle"], {
+            yPercent: 10,
+        });
+
+        gsap.to([".aboutme-intro", ".aboutme-title", ".aboutme-subtitle"], {
+            yPercent: 0,
+            duration: 1,
+            stagger: 0.06,
+            ease: "power2.out",
+        });
     }, []);
 
     return (

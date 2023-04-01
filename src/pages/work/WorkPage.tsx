@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import {
     cursorElementEnter,
@@ -6,6 +6,8 @@ import {
 } from "../../utils/animationFunctions";
 import { projectData } from "../../utils/projectData";
 import "./WorkPage.css";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 type Project = {
     title: string;
@@ -36,10 +38,14 @@ function Project({ project, number }: { project: Project; number: number }) {
                         <span className="index-line"></span>
                         <span className="index-total">03</span>
                     </div>
-                    <h3 className="project-title">{project.title}.</h3>
+                    <div className="title-overflow--wrapper">
+                        <h3 className="project-title">{project.title}.</h3>
+                    </div>
                 </div>
                 <div className="title-separator--component">
-                    <div className="title-line"></div>
+                    <div className="title-overflow--wrapper">
+                        <div className="title-line"></div>
+                    </div>
                     <div className="title-square"></div>
                 </div>
             </div>
@@ -84,11 +90,62 @@ function Project({ project, number }: { project: Project; number: number }) {
     );
 }
 
-export function WorkPage({
-    isStuck,
-}: {
-    isStuck: React.MutableRefObject<boolean>;
-}) {
+export function WorkPage() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    useEffect(() => {
+        gsap.set([".project-title", ".title-square"], {
+            opacity: 0,
+        });
+        gsap.set(".project-title", { yPercent: 100 });
+        gsap.set(".title-line", { xPercent: -100 });
+        gsap.set(".title-square", { scale: 4 });
+
+        let allTitleEle = gsap.utils.toArray(".project-title");
+        allTitleEle.forEach((title) => {
+            gsap.to(title, {
+                opacity: 1,
+                yPercent: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: title,
+                    start: "top bottom-=100",
+                    end: "bottom bottom",
+                },
+            });
+        });
+        let allLineComponents = gsap.utils.toArray(".title-line");
+        allLineComponents.forEach((line) => {
+            gsap.to(line, {
+                xPercent: 0,
+                duration: 1.8,
+                ease: "power2.out",
+                delay: 1,
+                scrollTrigger: {
+                    trigger: line,
+                    start: "top bottom-=100",
+                    end: "bottom bottom",
+                },
+            });
+        });
+        let allSquares = gsap.utils.toArray(".title-square");
+        allSquares.forEach((square) => {
+            gsap.to(square, {
+                opacity: 1,
+                rotate: "360deg",
+                ease: "power2.out",
+                scale: 1,
+                duration: 0.8,
+                delay: 2.4,
+                scrollTrigger: {
+                    trigger: square,
+                    start: "top bottom-=100",
+                    end: "bottom bottom",
+                },
+            });
+        });
+    }, []);
+
     return (
         <main className="work-container">
             {projectData.map((project, index) => {
@@ -96,7 +153,6 @@ export function WorkPage({
                     <Project
                         project={project}
                         number={index + 1}
-                        isStuck={isStuck}
                         key={`Project-${index}`}
                     />
                 );

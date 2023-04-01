@@ -66,6 +66,11 @@
     color: hsla(var(--co-secondary), 80%);
 }
 
+.title-overflow--wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
 .project-body--container {
     padding-inline-start: calc(3rem + 70px);
 }
@@ -80,18 +85,19 @@
     border: 1px solid hsla(var(--co-secondary), 20%);
 }
 
-.project-thumbnail:hover {
-    filter: grayscale(0);
-}
-
 .project-links {
     width: max-content;
     margin-block-start: 1rem;
-    padding: 1rem;
+    padding-inline: 1rem;
+    padding-block: 0.4rem;
     display: flex;
     gap: 3rem;
     align-items: flex-end;
     border: 1px solid hsla(var(--co-secondary), 10%);
+}
+
+.project-body--container:hover .project-thumbnail {
+    filter: grayscale(0);
 }
 
 .project-live--container,

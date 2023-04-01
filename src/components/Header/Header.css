@@ -2,6 +2,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 
 .logo {
@@ -18,7 +19,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 48px;
+    gap: 1.8rem;
     transform: translateY(-100%);
 }
 
@@ -46,6 +47,7 @@ nav {
     align-items: center;
     gap: 1.4rem;
     padding-inline: 1rem;
+    padding-block-start: 4px;
 }
 
 .link {

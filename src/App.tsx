@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/Header/Header";
+import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
     const [currentTheme, setCurrentTheme] = useState<
@@ -87,6 +88,7 @@ function App() {
                 currentTheme === "light" ? "app light-theme" : "app dark-theme"
             }
         >
+            <ScrollToTop />
             <div className="app-wrapper">
                 <Header
                     cursorCords={cursorCords}

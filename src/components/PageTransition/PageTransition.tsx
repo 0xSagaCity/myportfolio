@@ -9,7 +9,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     const pageRef = useRef<HTMLDivElement>(null);
 
     function entryAnimation() {
-        gsap.to(".page-container", { opacity: 1, duration: 1 });
+        gsap.to(".page-container", { opacity: 1, duration: 600 });
     }
 
     function exitAnimation() {
@@ -21,12 +21,11 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
             <Transition
                 nodeRef={pageRef}
                 key={location.key}
-                appear={true}
                 mountOnEnter={true}
                 unmountOnExit={true}
                 timeout={{
-                    enter: 1000,
-                    exit: 1000,
+                    enter: 600,
+                    exit: 600,
                 }}
                 onEnter={entryAnimation}
                 onExiting={exitAnimation}
