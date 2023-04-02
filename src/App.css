@@ -19,6 +19,5 @@
     height: 40px;
     width: 40px;
     border: 1px solid hsla(var(--co-accent), 70%);
-    background-color: hsla(var(--co-accent), 5%);
     z-index: 22000;
 }

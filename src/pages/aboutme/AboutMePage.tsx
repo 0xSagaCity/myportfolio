@@ -59,7 +59,7 @@ export function AboutMePage() {
         gsap.to([".aboutme-intro", ".aboutme-title", ".aboutme-subtitle"], {
             yPercent: 0,
             duration: 1,
-            stagger: 0.06,
+            stagger: 0.08,
             ease: "power2.out",
         });
     }, []);
