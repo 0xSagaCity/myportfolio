@@ -23,13 +23,13 @@
 }
 
 .dark-theme {
-    --co-secondary: 48, 53%, 93%;
+    --co-secondary: 48, 63%, 93%;
     --co-primary: 0, 0%, 7%;
     --co-accent: 18, 99%, 55%;
 }
 
 .light-theme {
-    --co-primary: 48, 53%, 93%;
+    --co-primary: 48, 63%, 93%;
     --co-secondary: 0, 0%, 0%;
     --co-accent: 18, 99%, 55%;
 }

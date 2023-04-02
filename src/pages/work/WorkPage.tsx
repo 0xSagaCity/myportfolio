@@ -1,3 +1,5 @@
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import {
@@ -6,8 +8,6 @@ import {
 } from "../../utils/animationFunctions";
 import { projectData } from "../../utils/projectData";
 import "./WorkPage.css";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 type Project = {
     title: string;
@@ -96,9 +96,18 @@ export function WorkPage() {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
-        gsap.set([".project-title", ".title-square"], {
-            opacity: 0,
-        });
+        gsap.set(
+            [
+                ".project-title",
+                ".title-square",
+                ".project-links",
+                ".project-description",
+                ".project-tech--container",
+            ],
+            {
+                opacity: 0,
+            }
+        );
         gsap.set(".project-title", { yPercent: 60 });
         gsap.set(".title-line", { xPercent: -100 });
         gsap.set(".title-square", { scale: 3 });
@@ -148,7 +157,7 @@ export function WorkPage() {
                 ease: "power2.out",
                 scale: 1,
                 duration: 0.8,
-                delay: 2.4,
+                delay: 1.8,
                 scrollTrigger: {
                     trigger: square,
                 },
@@ -161,6 +170,7 @@ export function WorkPage() {
                 autoAlpha: 1,
                 duration: 1,
                 y: 0,
+                delay: 0.2,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: thumbnail,
@@ -174,6 +184,7 @@ export function WorkPage() {
                 opacity: 1,
                 duration: 1,
                 y: 0,
+                delay: 0.3,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: links,
@@ -187,6 +198,7 @@ export function WorkPage() {
                 opacity: 1,
                 duration: 1,
                 y: 0,
+                delay: 0.4,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: desc,
@@ -200,11 +212,10 @@ export function WorkPage() {
                 opacity: 1,
                 duration: 1,
                 y: 0,
+                delay: 0.5,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: tech,
-                    start: "top bottom",
-                    end: "bottom bottom",
                 },
             });
         });

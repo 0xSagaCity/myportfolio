@@ -1,12 +1,13 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
-import "./AboutMePage.css";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { SocialBar } from "../../components/SocialsBar/SocialsBar";
 import {
     cursorElementEnter,
     cursorElementLeave,
 } from "../../utils/animationFunctions";
+import "./AboutMePage.css";
 
 export function AboutMePage() {
     const exploreButtonRef = useRef<HTMLButtonElement>(null);
@@ -23,6 +24,8 @@ export function AboutMePage() {
         navigate("/work");
     }
 
+    gsap.registerPlugin(ScrollTrigger);
+
     useLayoutEffect(() => {
         gsap.fromTo(
             [".greeting-english", ".greeting-hindi", ".greeting-emph"],
@@ -34,10 +37,12 @@ export function AboutMePage() {
                 opacity: 1,
                 yPercent: 0,
                 duration: 1,
-                stagger: 0.2,
+                delay: 0.6,
+                stagger: 0.1,
                 ease: "power3.out",
             }
         );
+
         gsap.fromTo(
             ".aboutme-image-container",
             {
@@ -46,22 +51,52 @@ export function AboutMePage() {
             {
                 scale: 1,
                 duration: 0.6,
-                ease: "expo.easeIn",
+                ease: "power2.out",
             }
         );
-    }, []);
 
-    useEffect(() => {
         gsap.set([".aboutme-intro", ".aboutme-title", ".aboutme-subtitle"], {
-            yPercent: 10,
+            y: 100,
         });
 
+        gsap.set(
+            [
+                ".connect-text",
+                ".connect-links-container",
+                ".explore-button",
+                ".date-hex-container",
+            ],
+            {
+                y: 200,
+                opacity: 0,
+            }
+        );
+
         gsap.to([".aboutme-intro", ".aboutme-title", ".aboutme-subtitle"], {
-            yPercent: 0,
+            y: 0,
             duration: 1,
             stagger: 0.08,
             ease: "power2.out",
         });
+
+        gsap.to(
+            [
+                ".connect-text",
+                ".connect-links-container",
+                ".explore-button",
+                ".date-hex-container",
+            ],
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.08,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".explore-button",
+                },
+            }
+        );
     }, []);
 
     return (
