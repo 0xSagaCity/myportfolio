@@ -85,6 +85,7 @@
 }
 
 .project-links {
+    min-height: 40px;
     width: max-content;
     margin-block-start: 1rem;
     padding-inline: 1rem;
@@ -126,6 +127,7 @@
 }
 
 .project-tech--container {
+    width: max-content;
     margin-block-start: 2rem;
 }
 
@@ -152,6 +154,14 @@
     margin-block-start: 4px;
 }
 
+.project-icon--wrapper {
+    cursor: pointer;
+}
+
 .project-icon--wrapper .icon-path {
     fill: hsla(var(--co-secondary), 70%);
+}
+
+.project-icon--wrapper:hover .icon-path {
+    fill: hsla(var(--co-accent), 70%);
 }

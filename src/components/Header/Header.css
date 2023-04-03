@@ -64,12 +64,12 @@ nav {
 
 /* Active link */
 .active-link {
-    color: hsla(var(--co-secondary), 60%);
+    color: hsla(var(--co-secondary), 40%);
     transition: color 900ms;
 }
 
 .active-link > .link-circle {
-    background-color: hsla(var(--co-accent), 60%);
+    background-color: hsla(var(--co-accent), 40%);
 }
 
 .active-link .link-line {
@@ -78,12 +78,12 @@ nav {
 
 /* Inactive Link */
 .inactive-link {
-    color: hsla(var(--co-secondary), 30%);
+    color: hsla(var(--co-secondary), 20%);
     transition: color 900ms;
 }
 
 .inactive-link > .link-circle {
-    background-color: hsla(var(--co-secondary), 30%);
+    background-color: hsla(var(--co-secondary), 20%);
 }
 
 .inactive-link .link-line {

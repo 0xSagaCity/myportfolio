@@ -11,10 +11,10 @@ interface itemRefType
 
 export function cursorElementEnter(
     isStuck: animStuckType,
-    themeToggleRef: itemRefType,
+    itemToggleRef: itemRefType,
     customProperties: Object = {}
 ) {
-    const toggleRect = themeToggleRef.current?.getBoundingClientRect();
+    const toggleRect = itemToggleRef.current?.getBoundingClientRect();
     gsap.to(".cursor--outer", {
         height: toggleRect?.height,
         width: toggleRect?.width,

@@ -28,6 +28,7 @@ function Project({ project, number }: { project: Project; number: number }) {
         isStuck: React.MutableRefObject<boolean>;
     } = useOutletContext();
     const projectLinksRef = useRef<HTMLDivElement>(null);
+    const projectIconsRef = useRef<HTMLDivElement>(null);
 
     return (
         <section className="project">
@@ -83,9 +84,19 @@ function Project({ project, number }: { project: Project; number: number }) {
                 <div className="work-overflow--wrapper">
                     <p className="project-description">{project.description}</p>
                 </div>
-                <div className="project-tech--container">
+                <div
+                    className="project-tech--container"
+                    onMouseEnter={() =>
+                        cursorElementEnter(isStuck, projectIconsRef, {
+                            borderRadius: 0,
+                        })
+                    }
+                    onMouseLeave={() =>
+                        cursorElementLeave(isStuck, { borderRadius: "50%" })
+                    }
+                >
                     <span className="tech-subtitle">Technology used</span>
-                    <div className="project-icons">
+                    <div className="project-icons" ref={projectIconsRef}>
                         {project.icons.map((iconInfo) => {
                             return (
                                 <div
@@ -194,7 +205,7 @@ export function WorkPage() {
                 opacity: 1,
                 duration: 0.6,
                 y: 0,
-                delay: 0.3,
+                delay: 0.25,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: links,
@@ -208,7 +219,7 @@ export function WorkPage() {
                 opacity: 1,
                 duration: 0.6,
                 y: 0,
-                delay: 0.4,
+                delay: 0.3,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: desc,
@@ -222,7 +233,7 @@ export function WorkPage() {
                 opacity: 1,
                 duration: 0.6,
                 y: 0,
-                delay: 0.5,
+                delay: 0.35,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: tech,
