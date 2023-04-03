@@ -17,7 +17,7 @@ type Project = {
     thumbnail: string;
     icons: {
         name: string;
-        link: string;
+        icon: JSX.Element;
     }[];
 };
 
@@ -85,7 +85,19 @@ function Project({ project, number }: { project: Project; number: number }) {
                 </div>
                 <div className="project-tech--container">
                     <span className="tech-subtitle">Technology used</span>
-                    <div className="project-icons"></div>
+                    <div className="project-icons">
+                        {project.icons.map((iconInfo) => {
+                            return (
+                                <div
+                                    key={`project-icon-${number}-${iconInfo.name}`}
+                                    className="project-icon--wrapper"
+                                    title={`${iconInfo.name} was used in this`}
+                                >
+                                    {iconInfo.icon}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </section>
@@ -119,7 +131,7 @@ export function WorkPage() {
                 ".project-description",
                 ".project-tech--container",
             ],
-            { y: 100 }
+            { y: 60 }
         );
 
         let allTitleEle = gsap.utils.toArray(".project-title");
@@ -130,8 +142,6 @@ export function WorkPage() {
                 duration: 0.6,
                 scrollTrigger: {
                     trigger: title,
-                    start: "top bottom-=100",
-                    end: "bottom bottom",
                 },
             });
         });
@@ -168,7 +178,7 @@ export function WorkPage() {
         allThumbnails.forEach((thumbnail) => {
             gsap.to(thumbnail, {
                 autoAlpha: 1,
-                duration: 1,
+                duration: 0.6,
                 y: 0,
                 delay: 0.2,
                 ease: "power2.out",
@@ -182,7 +192,7 @@ export function WorkPage() {
         allProjectLinks.forEach((links) => {
             gsap.to(links, {
                 opacity: 1,
-                duration: 1,
+                duration: 0.6,
                 y: 0,
                 delay: 0.3,
                 ease: "power2.out",
@@ -196,7 +206,7 @@ export function WorkPage() {
         allProjectDescriptions.forEach((desc) => {
             gsap.to(desc, {
                 opacity: 1,
-                duration: 1,
+                duration: 0.6,
                 y: 0,
                 delay: 0.4,
                 ease: "power2.out",
@@ -210,7 +220,7 @@ export function WorkPage() {
         allProjectTech.forEach((tech) => {
             gsap.to(tech, {
                 opacity: 1,
-                duration: 1,
+                duration: 0.6,
                 y: 0,
                 delay: 0.5,
                 ease: "power2.out",

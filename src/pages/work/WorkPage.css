@@ -134,8 +134,24 @@
 }
 
 .project-icons {
-    height: 2rem;
-    width: 16rem;
+    width: max-content;
     margin-block-start: 1rem;
-    border: 2px solid hsla(var(--co-secondary), 20%);
+    border: 1px solid hsla(var(--co-secondary), 20%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding-inline: 0.6rem;
+    padding-block: 0.4rem;
+}
+
+.project-icon--wrapper {
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    margin-block-start: 4px;
+}
+
+.project-icon--wrapper .icon-path {
+    fill: hsla(var(--co-secondary), 70%);
 }

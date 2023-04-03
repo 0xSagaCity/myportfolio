@@ -1,3 +1,13 @@
+import {
+    CSSIcon,
+    FramerMotionIcon,
+    GSAPIcon,
+    JavascriptIcon,
+    PeerJSIcon,
+    ReactIcon,
+    SASSIcon,
+    TypescriptIcon,
+} from "../components/Icons/Icons";
 export const projectData = [
     {
         title: "Froots Interface",
@@ -8,16 +18,20 @@ export const projectData = [
         thumbnail: "https://i.imgur.com/Cfix2HO.png",
         icons: [
             {
-                name: "CSS",
-                link: "https://www.example.com/projectone/icontwo.png",
-            },
-            {
                 name: "React",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <ReactIcon />,
             },
             {
                 name: "Framer Motion",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <FramerMotionIcon />,
+            },
+            {
+                name: "CSS",
+                icon: <CSSIcon />,
+            },
+            {
+                name: "Javascript",
+                icon: <JavascriptIcon />,
             },
         ],
     },
@@ -31,19 +45,23 @@ export const projectData = [
         icons: [
             {
                 name: "SASS",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <SASSIcon />,
+            },
+            {
+                name: "Typescript",
+                icon: <TypescriptIcon />,
             },
             {
                 name: "React",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <ReactIcon />,
             },
             {
                 name: "GSAP",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <GSAPIcon />,
             },
             {
                 name: "PeerJS",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <PeerJSIcon />,
             },
         ],
     },
@@ -57,15 +75,15 @@ export const projectData = [
         icons: [
             {
                 name: "CSS",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <CSSIcon />,
             },
             {
                 name: "React",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <ReactIcon />,
             },
             {
                 name: "Framer Motion",
-                link: "https://www.example.com/projectone/icontwo.png",
+                icon: <FramerMotionIcon />,
             },
         ],
     },
