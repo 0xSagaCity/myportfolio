@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { MoonIcon, SunIcon } from "../Icons/Icons";
-import "./Header.css";
 import {
     cursorElementEnter,
     cursorElementLeave,

@@ -1,0 +1,163 @@
+/* Large Laptops */
+@media screen and (max-width: 1440px) {
+    .app {
+        padding-inline: 25px !important;
+    }
+
+    .aboutme-container {
+        margin-inline: 80px;
+    }
+
+    .connect-container {
+        gap: 6rem;
+    }
+
+    .connect-left {
+        gap: 6rem;
+    }
+
+    .explore-button-emp {
+        padding-inline: 35px;
+    }
+
+    .connect-text,
+    .connect-links--container {
+        max-width: 300px;
+    }
+}
+
+/* Small Laptops (More like normal laptops really) */
+@media screen and (max-width: 1024px) {
+    .navigation {
+        min-height: max-content;
+        top: calc(100% - 5rem);
+        left: 50%;
+        right: 0;
+        transform: translateX(-50%) translateY(0);
+        flex-direction: row;
+        background-color: hsla(var(--co-secondary), 100%);
+        box-shadow: 0 0 2rem 1rem hsla(var(--co-secondary), 20%);
+        padding-inline: 30px;
+        padding-block: 4px;
+        margin-inline: 0;
+        justify-content: space-evenly;
+        z-index: 4;
+    }
+
+    .link {
+        padding-inline: 0.4rem;
+    }
+
+    .active-link {
+        padding-inline: 1rem;
+        color: hsla(var(--co-primary), 100%);
+    }
+
+    .inactive-link {
+        padding-inline: 1rem;
+        color: hsla(var(--co-primary), 80%);
+    }
+
+    .active-link > .link-circle,
+    .inactive-link > .link-circle {
+        display: none;
+    }
+
+    .active-link .link-line {
+        background-color: hsla(var(--co-accent), 100%);
+    }
+
+    /* Hover animation */
+    .navigation:hover .active-link {
+        color: hsla(var(--co-primary), 100%);
+    }
+
+    .navigation:hover .inactive-link {
+        color: hsla(var(--co-primary), 70%);
+    }
+
+    /* Work Page */
+    .project-description {
+        max-width: 400px;
+    }
+}
+
+/* Tables (Weird people category) */
+@media screen and (max-width: 768px) {
+    .aboutme-container,
+    .work-container {
+        margin-inline: 24px;
+        margin-block-start: 4rem;
+    }
+
+    .aboutme-intro {
+        width: 100%;
+    }
+
+    .connect-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .greeting-text {
+        font-size: var(--fs-big);
+    }
+
+    .aboutme-subtitle {
+        font-size: var(--fs-reg);
+    }
+
+    .connect-left {
+        gap: 4rem;
+    }
+
+    .connect-right {
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .date-hex-container {
+        margin-inline: 0;
+        min-width: max-content;
+        max-width: 200px;
+    }
+
+    .connect-text,
+    .connect-links--container {
+        max-width: 100%;
+    }
+
+    .navigation {
+        width: calc(100% - 50px);
+    }
+
+    .explore-button-emp {
+        padding-inline: 50px;
+    }
+
+    /* Work Page */
+    .project-body--container {
+        padding-inline-start: 0;
+    }
+
+    .project-index--container {
+        min-width: 40px;
+        padding: 0;
+    }
+
+    .project-title--wrapper {
+        gap: 2rem;
+    }
+
+    .title-separator--component {
+        width: 90%;
+    }
+
+    .project-title {
+        font-size: var(--fs-big);
+    }
+
+    .project-thumbnail {
+        width: 320px;
+    }
+}

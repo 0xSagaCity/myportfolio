@@ -7,7 +7,6 @@ import {
     cursorElementEnter,
     cursorElementLeave,
 } from "../../utils/animationFunctions";
-import "./AboutMePage.css";
 
 export function AboutMePage() {
     const exploreButtonRef = useRef<HTMLButtonElement>(null);
@@ -62,7 +61,7 @@ export function AboutMePage() {
         gsap.set(
             [
                 ".connect-text",
-                ".connect-links-container",
+                ".connect-links--container",
                 ".explore-button",
                 ".date-hex-container",
             ],
@@ -82,7 +81,7 @@ export function AboutMePage() {
         gsap.to(
             [
                 ".connect-text",
-                ".connect-links-container",
+                ".connect-links--container",
                 ".explore-button",
                 ".date-hex-container",
             ],
@@ -93,7 +92,7 @@ export function AboutMePage() {
                 stagger: 0.08,
                 ease: "power2.out",
                 scrollTrigger: {
-                    trigger: ".explore-button",
+                    trigger: ".connect-text",
                 },
             }
         );
@@ -153,7 +152,7 @@ export function AboutMePage() {
                             is possible.
                         </div>
                         <div
-                            className="connect-links-container"
+                            className="connect-links--container"
                             onMouseEnter={() =>
                                 cursorElementEnter(isStuck, socialIconsRef, {
                                     borderRadius: 0,

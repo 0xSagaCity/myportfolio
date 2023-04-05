@@ -7,7 +7,6 @@ import {
     cursorElementLeave,
 } from "../../utils/animationFunctions";
 import { projectData } from "../../utils/projectData";
-import "./WorkPage.css";
 
 type Project = {
     title: string;

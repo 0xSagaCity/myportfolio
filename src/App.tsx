@@ -1,9 +1,17 @@
 import gsap from "gsap";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
-import "./App.css";
 import { Header } from "./components/Header/Header";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
+
+/* For the media query priority thingy */
+import "./components/Header/Header.css";
+import "./App.css";
+import "./pages/aboutme/AboutMePage.css";
+import "./pages/work/WorkPage.css";
+import "./responsive/highres.css";
+import "./responsive/lowres.css";
+import "./responsive/mobile.css";
 
 function App() {
     const [currentTheme, setCurrentTheme] = useState<
