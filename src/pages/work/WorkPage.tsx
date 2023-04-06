@@ -20,14 +20,14 @@ type Project = {
     }[];
 };
 
-function Project({ 
-    project, 
-    number, 
-    isStuck, 
-    isTouchDevice
-}: { 
+function Project({
+    project,
+    number,
+    isStuck,
+    isTouchDevice,
+}: {
     project: Project;
-    number: number,
+    number: number;
     isStuck: React.MutableRefObject<boolean>;
     isTouchDevice: boolean;
 }) {
@@ -64,11 +64,18 @@ function Project({
                     className="project-links"
                     ref={projectLinksRef}
                     onMouseEnter={() =>
-                        cursorElementEnter(isStuck, projectLinksRef, {
-                            borderRadius: 0,
-                        }, isTouchDevice)
+                        cursorElementEnter(
+                            isStuck,
+                            projectLinksRef,
+                            {
+                                borderRadius: 0,
+                            },
+                            isTouchDevice
+                        )
                     }
-                    onMouseLeave={() => cursorElementLeave(isStuck, {}, isTouchDevice)}
+                    onMouseLeave={() =>
+                        cursorElementLeave(isStuck, {}, isTouchDevice)
+                    }
                 >
                     <a
                         className="project-live--container"
@@ -91,12 +98,21 @@ function Project({
                 <div
                     className="project-tech--container"
                     onMouseEnter={() =>
-                        cursorElementEnter(isStuck, projectIconsRef, {
-                            borderRadius: 0,
-                        }, isTouchDevice)
+                        cursorElementEnter(
+                            isStuck,
+                            projectIconsRef,
+                            {
+                                borderRadius: 0,
+                            },
+                            isTouchDevice
+                        )
                     }
                     onMouseLeave={() =>
-                        cursorElementLeave(isStuck, { borderRadius: "50%" }, isTouchDevice)
+                        cursorElementLeave(
+                            isStuck,
+                            { borderRadius: "50%" },
+                            isTouchDevice
+                        )
                     }
                 >
                     <span className="tech-subtitle">Technology used</span>
@@ -157,7 +173,7 @@ export function WorkPage() {
             { y: 60 }
         );
 
-        let allTitleEle = gsap.utils.toArray(".project-title");
+        let allTitleEle = gsap.utils.toArray<HTMLElement>(".project-title");
         allTitleEle.forEach((title) => {
             gsap.to(title, {
                 opacity: 1,
@@ -169,7 +185,7 @@ export function WorkPage() {
             });
         });
 
-        let allLineComponents = gsap.utils.toArray(".title-line");
+        let allLineComponents = gsap.utils.toArray<HTMLElement>(".title-line");
         allLineComponents.forEach((line) => {
             gsap.to(line, {
                 xPercent: 0,
@@ -182,7 +198,7 @@ export function WorkPage() {
             });
         });
 
-        let allSquares = gsap.utils.toArray(".title-square");
+        let allSquares = gsap.utils.toArray<HTMLElement>(".title-square");
         allSquares.forEach((square) => {
             gsap.to(square, {
                 opacity: 1,
@@ -197,7 +213,8 @@ export function WorkPage() {
             });
         });
 
-        let allThumbnails = gsap.utils.toArray(".project-thumbnail");
+        let allThumbnails =
+            gsap.utils.toArray<HTMLElement>(".project-thumbnail");
         allThumbnails.forEach((thumbnail) => {
             gsap.to(thumbnail, {
                 autoAlpha: 1,
@@ -211,7 +228,7 @@ export function WorkPage() {
             });
         });
 
-        let allProjectLinks = gsap.utils.toArray(".project-links");
+        let allProjectLinks = gsap.utils.toArray<HTMLElement>(".project-links");
         allProjectLinks.forEach((links) => {
             gsap.to(links, {
                 opacity: 1,
@@ -225,7 +242,9 @@ export function WorkPage() {
             });
         });
 
-        let allProjectDescriptions = gsap.utils.toArray(".project-description");
+        let allProjectDescriptions = gsap.utils.toArray<HTMLElement>(
+            ".project-description"
+        );
         allProjectDescriptions.forEach((desc) => {
             gsap.to(desc, {
                 opacity: 1,
@@ -239,7 +258,9 @@ export function WorkPage() {
             });
         });
 
-        let allProjectTech = gsap.utils.toArray(".project-tech--container");
+        let allProjectTech = gsap.utils.toArray<HTMLElement>(
+            ".project-tech--container"
+        );
         allProjectTech.forEach((tech) => {
             gsap.to(tech, {
                 opacity: 1,

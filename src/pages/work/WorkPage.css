@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     gap: 16rem;
-    margin-block-start: 10rem;
-    margin-block-end: 6rem;
+    margin-block: 10rem;
 }
 
 .project-title--container {
