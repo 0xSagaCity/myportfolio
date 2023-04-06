@@ -12,30 +12,36 @@ interface itemRefType
 export function cursorElementEnter(
     isStuck: animStuckType,
     itemToggleRef: itemRefType,
-    customProperties: Object = {}
+    customProperties: Object = {},
+    isTouchDevice: boolean,
 ) {
-    const toggleRect = itemToggleRef.current?.getBoundingClientRect();
-    gsap.to(".cursor--outer", {
-        height: toggleRect?.height,
-        width: toggleRect?.width,
-        x: toggleRect?.x,
-        y: toggleRect?.y,
-        duration: 0.8,
-        ease: "power2.out",
-        ...customProperties,
-    });
-    isStuck.current = true;
+    if(!isTouchDevice) {
+        const toggleRect = itemToggleRef.current?.getBoundingClientRect();
+        gsap.to(".cursor--outer", {
+            height: toggleRect?.height,
+            width: toggleRect?.width,
+            x: toggleRect?.x,
+            y: toggleRect?.y,
+            duration: 0.8,
+            ease: "power2.out",
+            ...customProperties,
+        });
+        isStuck.current = true;
+    }
 }
 
 export function cursorElementLeave(
     isStuck: animStuckType,
-    customProperties: Object = {}
+    customProperties: Object = {},
+    isTouchDevice: boolean,
 ) {
-    isStuck.current = false;
-    gsap.to(".cursor--outer", {
-        height: "40px",
-        width: "40px",
-        duration: 0.4,
-        ...customProperties,
-    });
+    if(!isTouchDevice) {
+        isStuck.current = false;
+        gsap.to(".cursor--outer", {
+            height: "40px",
+            width: "40px",
+            duration: 0.4,
+            ...customProperties,
+        });
+    }
 }

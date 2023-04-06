@@ -1,3 +1,101 @@
+@media screen and (min-width: 1920px) {
+    .aboutme-container,
+    .work-container {
+        padding-block-start: 10vh;
+    }
+}
+
 /* 4k Screens */
 @media (min-width: 2560px) {
+    .app {
+        display: flex;
+        justify-content: center;
+        --fs-small: 1rem;
+        --fs-reg: 1.618rem;
+        --fs-big: 2.618rem;
+        --fs-bigger: 4.236rem;
+        --fs-biggest: 6.854rem;
+        --fs-huge: 11.089rem;
+        padding-block: 100px !important;
+    }
+
+    .app-wrapper {
+        width: 100%;
+        max-width: 2100px;
+    }
+
+    .navigation {
+        right: 10vw;
+    }
+
+    .aboutme-image,
+    .aboutme-image-container {
+        height: 240px;
+        width: 240px;
+    }
+
+    .connect-text {
+        max-width: 712px;
+    }
+
+    .aboutme-speak {
+        max-width: 600px;
+    }
+
+    .links-container {
+        height: 6rem;
+    }
+
+    .social-icons-inner {
+        display: flex;
+        align-items: center;
+    }
+
+    .social-icon,
+    .project-icon--wrapper {
+        height: 40px;
+        width: 40px;
+    }
+
+    .theme-toggle,
+    .theme-toggle > svg {
+        height: 48px;
+        width: 48px;
+    }
+
+    .explore-button-emp {
+        padding-inline: 100px;
+    }
+
+    .date-hex-container {
+        margin-inline-end: 100px;
+    }
+
+    /* Work Page */
+    .work-container {
+        gap: 32rem;
+    }
+
+    .project-index--container {
+        min-width: 100px;
+    }
+
+    .title-separator--component {
+        max-width: 72rem;
+    }
+
+    .project-thumbnail {
+        width: 600px;
+    }
+
+    .project-links,
+    .project-description,
+    .project-tech--container {
+        font-size: var(--fs-reg);
+    }
+
+    .project-icons,
+    .project-links {
+        gap: 4rem;
+    }
 }

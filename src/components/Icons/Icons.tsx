@@ -3,8 +3,6 @@ export function SunIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="22"
-            width="22"
             viewBox="0 0 22 22"
         >
             <path
@@ -19,8 +17,6 @@ export function MoonIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="22"
-            width="22"
             viewBox="0 0 22 22"
         >
             <path

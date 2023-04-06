@@ -12,8 +12,10 @@ export function AboutMePage() {
     const exploreButtonRef = useRef<HTMLButtonElement>(null);
     const {
         isStuck,
+        isTouchDevice,
     }: {
         isStuck: React.MutableRefObject<boolean>;
+        isTouchDevice: boolean;
     } = useOutletContext();
     const navigate = useNavigate();
     const socialIconsRef = useRef<HTMLDivElement>(null);
@@ -154,14 +156,23 @@ export function AboutMePage() {
                         <div
                             className="connect-links--container"
                             onMouseEnter={() =>
-                                cursorElementEnter(isStuck, socialIconsRef, {
-                                    borderRadius: 0,
-                                })
+                                cursorElementEnter(
+                                    isStuck,
+                                    socialIconsRef,
+                                    {
+                                        borderRadius: 0,
+                                    },
+                                    isTouchDevice
+                                )
                             }
                             onMouseLeave={() => {
-                                cursorElementLeave(isStuck, {
-                                    borderRadius: "50%",
-                                });
+                                cursorElementLeave(
+                                    isStuck,
+                                    {
+                                        borderRadius: "50%",
+                                    },
+                                    isTouchDevice
+                                );
                             }}
                         >
                             <span className="links-title">Connect with me</span>
@@ -178,9 +189,16 @@ export function AboutMePage() {
                             ref={exploreButtonRef}
                             className="explore-button cursor-hover-effect"
                             onMouseEnter={() =>
-                                cursorElementEnter(isStuck, exploreButtonRef)
+                                cursorElementEnter(
+                                    isStuck,
+                                    exploreButtonRef,
+                                    {},
+                                    isTouchDevice
+                                )
                             }
-                            onMouseLeave={() => cursorElementLeave(isStuck)}
+                            onMouseLeave={() =>
+                                cursorElementLeave(isStuck, {}, isTouchDevice)
+                            }
                             onClick={() => sendToWork()}
                         >
                             <span className="explore-button-text">

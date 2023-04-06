@@ -9,11 +9,11 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     const pageRef = useRef<HTMLDivElement>(null);
 
     function entryAnimation() {
-        gsap.to(".page-container", { opacity: 1, duration: 600 });
+        gsap.to(".page-container", { opacity: 1, duration: 0.6 });
     }
 
     function exitAnimation() {
-        gsap.to(".page-container", { opacity: 0, duration: 1 });
+        gsap.to(".page-container", { opacity: 0, duration: 0.6 });
     }
 
     return (

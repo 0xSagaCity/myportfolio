@@ -2,7 +2,6 @@
 .aboutme-container {
     margin-inline: 200px;
     margin-block-start: 176px;
-    padding-block-end: 120px;
 }
 
 .aboutme-intro {
@@ -98,11 +97,13 @@
     margin-block-start: 80px;
     max-width: 26rem;
     position: relative;
+    font-size: var(--fs-reg);
 }
 
 .aboutme-speak::after {
     content: "";
     height: 200%;
+    max-height: 248px;
     width: 2px;
     position: absolute;
     top: 4px;
@@ -130,6 +131,7 @@
 
 .connect-text {
     max-width: 412px;
+    font-size: var(--fs-reg);
 }
 
 .connect-links-container {
@@ -196,7 +198,7 @@
 }
 
 .explore-button:hover {
-    border: 1px solid transparent;
+    border: 1px solid hsla(var(--co-accent), 80%);
 }
 
 .explore-button:hover .explore-button-emp {

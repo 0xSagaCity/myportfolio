@@ -44,6 +44,7 @@
     display: flex;
     flex-direction: column;
     padding: 0.6rem;
+    font-size: var(--fs-reg);
 }
 
 .index-number {
@@ -80,7 +81,6 @@
     width: 480px;
     aspect-ratio: 16/9;
     margin-block-start: 4rem;
-    padding: 4px;
     border: 1px solid hsla(var(--co-secondary), 20%);
 }
 

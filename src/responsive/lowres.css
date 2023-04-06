@@ -36,7 +36,7 @@
         transform: translateX(-50%) translateY(0);
         flex-direction: row;
         background-color: hsla(var(--co-secondary), 100%);
-        box-shadow: 0 0 2rem 1rem hsla(var(--co-secondary), 20%);
+        box-shadow: 0 0 2rem 1rem hsla(var(--co-secondary), 25%);
         padding-inline: 30px;
         padding-block: 4px;
         margin-inline: 0;
@@ -90,6 +90,10 @@
         margin-block-start: 4rem;
     }
 
+    .aboutme-container {
+        padding-block-end: 120px;
+    }
+
     .aboutme-intro {
         width: 100%;
     }
@@ -136,6 +140,10 @@
     }
 
     /* Work Page */
+    .work-container {
+        gap: 8rem;
+    }
+
     .project-body--container {
         padding-inline-start: 0;
     }

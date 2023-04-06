@@ -46,24 +46,27 @@ export function SocialBar() {
         </svg>,
     ];
 
-    const iconTitles = [
-        "Github Link",
-        "Gmail Icon",
-        "LinkedIn Icon",
-        "Twitter Icon",
+    const iconTitles = ["Github", "Gmail", "LinkedIn", "Twitter"];
+
+    const iconLinks = [
+        "https://github.com/0xSagaCity/",
+        "mailto:pavitrakarswaraj@gmail.com",
+        "https://in.linkedin.com/in/swaraj-pavitrakar-8910a6204",
+        "https://twitter.com/0xSagaCity",
     ];
 
     return (
         <div className="social-icons-inner">
             {allSocialIcons.map((icon, index) => {
                 return (
-                    <div
+                    <a
                         key={`social-icon-${index}`}
                         title={iconTitles[index]}
                         className="social-icon-wrapper"
+                        href={iconLinks[index]}
                     >
                         {icon}
-                    </div>
+                    </a>
                 );
             })}
         </div>

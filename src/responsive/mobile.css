@@ -1,11 +1,88 @@
 /* Large Mobiles */
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
+    .navigation {
+        padding-inline: 0;
+    }
+
+    /* Aboutme Page */
+    .aboutme-image-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .aboutme-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .aboutme-speak {
+        margin-block-start: 44px;
+    }
+
+    .aboutme-title {
+        margin-block-start: 1rem;
+    }
+
+    .greeting-hindi,
+    .greeting-english {
+        font-size: var(--fs-big);
+    }
+
+    /* Work Page */
+    .project-thumbnail {
+        width: 280px;
+    }
+
+    .project-title--wrapper {
+        gap: 1rem;
+    }
+
+    .project-title--container {
+        gap: 0.4rem;
+    }
+
+    .project-index--container {
+        min-width: 30px;
+        font-size: var(--fs-small);
+        padding-block-end: 6px;
+    }
+
+    .project-description {
+        margin-block-start: 2rem;
+    }
+
+    .project-links {
+        border: none;
+        padding-inline: 0;
+    }
+
+    .title-separator--component {
+        width: 100%;
+    }
+
+    .project-icon--wrapper {
+        height: 20px;
+        width: 20px;
+    }
 }
 
 /* Medium Mobiles */
-@media (max-width: 375px) {
-}
+@media screen and (max-width: 375px) {
+    .navigation {
+        width: calc(100% - 24px);
+    }
 
-/* Small Mobiles */
-@media (max-width: 320px) {
+    .active-link,
+    .inactive-link {
+        padding-inline: 0;
+    }
+
+    .work-container,
+    .aboutme-container {
+        margin-inline: 0;
+    }
+
+    .explore-button-emp {
+        padding-inline: 30px;
+    }
 }

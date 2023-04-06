@@ -10,6 +10,7 @@ export function Header({
     isStuck,
     currentTheme,
     setCurrentTheme,
+    isTouchDevice,
 }: {
     cursorCords: React.MutableRefObject<{
         cursorX: number;
@@ -20,6 +21,7 @@ export function Header({
     setCurrentTheme: React.Dispatch<
         React.SetStateAction<"dark" | "light" | "default">
     >;
+    isTouchDevice: boolean;
 }): JSX.Element {
     const aboutMeRef = useRef<HTMLAnchorElement>(null);
     const workRef = useRef<HTMLAnchorElement>(null);
@@ -33,12 +35,21 @@ export function Header({
                     to="/"
                     ref={aboutMeRef}
                     onMouseEnter={() => {
-                        cursorElementEnter(isStuck, aboutMeRef, {
-                            borderRadius: "100rem",
-                        });
+                        cursorElementEnter(
+                            isStuck,
+                            aboutMeRef,
+                            {
+                                borderRadius: "100rem",
+                            },
+                            isTouchDevice
+                        );
                     }}
                     onMouseLeave={() => {
-                        cursorElementLeave(isStuck, { borderRadius: "50%" });
+                        cursorElementLeave(
+                            isStuck,
+                            { borderRadius: "50%" },
+                            isTouchDevice
+                        );
                     }}
                     className={({ isActive, isPending }) =>
                         isPending
@@ -58,12 +69,21 @@ export function Header({
                     to="work"
                     ref={workRef}
                     onMouseEnter={() => {
-                        cursorElementEnter(isStuck, workRef, {
-                            borderRadius: "100rem",
-                        });
+                        cursorElementEnter(
+                            isStuck,
+                            workRef,
+                            {
+                                borderRadius: "100rem",
+                            },
+                            isTouchDevice
+                        );
                     }}
                     onMouseLeave={() => {
-                        cursorElementLeave(isStuck, { borderRadius: "50%" });
+                        cursorElementLeave(
+                            isStuck,
+                            { borderRadius: "50%" },
+                            isTouchDevice
+                        );
                     }}
                     className={({ isActive, isPending }) =>
                         isPending
@@ -95,10 +115,15 @@ export function Header({
                 }}
                 ref={themeToggleRef}
                 onMouseEnter={() => {
-                    cursorElementEnter(isStuck, themeToggleRef);
+                    cursorElementEnter(
+                        isStuck,
+                        themeToggleRef,
+                        {},
+                        isTouchDevice
+                    );
                 }}
                 onMouseLeave={() => {
-                    cursorElementLeave(isStuck);
+                    cursorElementLeave(isStuck, {}, isTouchDevice);
                 }}
                 className="theme-toggle icon-container"
             >

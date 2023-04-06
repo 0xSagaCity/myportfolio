@@ -20,12 +20,17 @@ type Project = {
     }[];
 };
 
-function Project({ project, number }: { project: Project; number: number }) {
-    const {
-        isStuck,
-    }: {
-        isStuck: React.MutableRefObject<boolean>;
-    } = useOutletContext();
+function Project({ 
+    project, 
+    number, 
+    isStuck, 
+    isTouchDevice
+}: { 
+    project: Project;
+    number: number,
+    isStuck: React.MutableRefObject<boolean>;
+    isTouchDevice: boolean;
+}) {
     const projectLinksRef = useRef<HTMLDivElement>(null);
     const projectIconsRef = useRef<HTMLDivElement>(null);
 
@@ -61,9 +66,9 @@ function Project({ project, number }: { project: Project; number: number }) {
                     onMouseEnter={() =>
                         cursorElementEnter(isStuck, projectLinksRef, {
                             borderRadius: 0,
-                        })
+                        }, isTouchDevice)
                     }
-                    onMouseLeave={() => cursorElementLeave(isStuck)}
+                    onMouseLeave={() => cursorElementLeave(isStuck, {}, isTouchDevice)}
                 >
                     <a
                         className="project-live--container"
@@ -88,10 +93,10 @@ function Project({ project, number }: { project: Project; number: number }) {
                     onMouseEnter={() =>
                         cursorElementEnter(isStuck, projectIconsRef, {
                             borderRadius: 0,
-                        })
+                        }, isTouchDevice)
                     }
                     onMouseLeave={() =>
-                        cursorElementLeave(isStuck, { borderRadius: "50%" })
+                        cursorElementLeave(isStuck, { borderRadius: "50%" }, isTouchDevice)
                     }
                 >
                     <span className="tech-subtitle">Technology used</span>
@@ -116,6 +121,14 @@ function Project({ project, number }: { project: Project; number: number }) {
 
 export function WorkPage() {
     gsap.registerPlugin(ScrollTrigger);
+
+    const {
+        isStuck,
+        isTouchDevice,
+    }: {
+        isStuck: React.MutableRefObject<boolean>;
+        isTouchDevice: boolean;
+    } = useOutletContext();
 
     useEffect(() => {
         gsap.set(
@@ -188,7 +201,7 @@ export function WorkPage() {
         allThumbnails.forEach((thumbnail) => {
             gsap.to(thumbnail, {
                 autoAlpha: 1,
-                duration: 0.6,
+                duration: 0.4,
                 y: 0,
                 delay: 0.2,
                 ease: "power2.out",
@@ -202,7 +215,7 @@ export function WorkPage() {
         allProjectLinks.forEach((links) => {
             gsap.to(links, {
                 opacity: 1,
-                duration: 0.6,
+                duration: 0.4,
                 y: 0,
                 delay: 0.25,
                 ease: "power2.out",
@@ -216,7 +229,7 @@ export function WorkPage() {
         allProjectDescriptions.forEach((desc) => {
             gsap.to(desc, {
                 opacity: 1,
-                duration: 0.6,
+                duration: 0.4,
                 y: 0,
                 delay: 0.3,
                 ease: "power2.out",
@@ -230,7 +243,7 @@ export function WorkPage() {
         allProjectTech.forEach((tech) => {
             gsap.to(tech, {
                 opacity: 1,
-                duration: 0.6,
+                duration: 0.4,
                 y: 0,
                 delay: 0.35,
                 ease: "power2.out",
@@ -248,6 +261,8 @@ export function WorkPage() {
                     <Project
                         project={project}
                         number={index + 1}
+                        isStuck={isStuck}
+                        isTouchDevice={isTouchDevice}
                         key={`Project-${index}`}
                     />
                 );
