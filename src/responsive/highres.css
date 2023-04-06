@@ -1,12 +1,10 @@
-@media screen and (min-width: 1920px) {
+/* 4k Screens */
+@media (min-width: 2560px) {
     .aboutme-container,
     .work-container {
         padding-block-start: 10vh;
     }
-}
 
-/* 4k Screens */
-@media (min-width: 2560px) {
     .app {
         display: flex;
         justify-content: center;
@@ -26,6 +24,10 @@
 
     .navigation {
         right: 10vw;
+    }
+
+    .link-line {
+        transform: translateX(-50%) translateY(100%);
     }
 
     .aboutme-image,

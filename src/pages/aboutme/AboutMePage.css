@@ -2,6 +2,7 @@
 .aboutme-container {
     margin-inline: 200px;
     margin-block-start: 176px;
+    margin-block-end: 6rem;
 }
 
 .aboutme-intro {
