@@ -7,7 +7,11 @@ export function SmoothScroll({
     children: JSX.Element[] | JSX.Element;
 }): JSX.Element {
     const smoothScrollEffectId = useRef(0);
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+        lerp: 0.08,
+        smoothTouch: true,
+        touchMultiplier: 3,
+    });
 
     function raf(time: any) {
         lenis.raf(time);

@@ -38,8 +38,7 @@ export function AboutMePage() {
                 opacity: 1,
                 yPercent: 0,
                 duration: 1,
-                delay: 0.4,
-                stagger: 0.1,
+                stagger: 0.3,
                 ease: "power3.out",
             }
         );

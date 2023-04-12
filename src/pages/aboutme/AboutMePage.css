@@ -162,7 +162,7 @@
     display: flex;
     justify-content: space-evenly;
     padding-block: 12px;
-    background: hsla(var(--co-secondary), 70%);
+    background: hsla(var(--co-secondary), 90%);
 }
 
 .social-icon {
