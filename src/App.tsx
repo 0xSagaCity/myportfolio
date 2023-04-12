@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 import CursorEffect from "./components/CursorEffect/CursorEffect";
+import { SmoothScroll } from "./components/SmoothScroll/SmoothScroll";
 import useMediaQuery from "./hooks/useMediaQuery";
 
 /* For the media query priority thingy */
@@ -51,26 +52,30 @@ function App() {
     }, []);
 
     return (
-        <div
-            className={
-                currentTheme === "light" ? "app light-theme" : "app dark-theme"
-            }
-        >
-            <ScrollToTop />
-            <div className="app-wrapper">
-                <Header
-                    cursorCords={cursorCords}
-                    isStuck={isStuck}
-                    currentTheme={currentTheme}
-                    setCurrentTheme={setCurrentTheme}
-                    isTouchDevice={isTouchDevice}
-                />
-                <Outlet context={{ isStuck, isTouchDevice }} />
+        <SmoothScroll>
+            <div
+                className={
+                    currentTheme === "light"
+                        ? "app light-theme"
+                        : "app dark-theme"
+                }
+            >
+                <ScrollToTop />
+                <div className="app-wrapper">
+                    <Header
+                        cursorCords={cursorCords}
+                        isStuck={isStuck}
+                        currentTheme={currentTheme}
+                        setCurrentTheme={setCurrentTheme}
+                        isTouchDevice={isTouchDevice}
+                    />
+                    <Outlet context={{ isStuck, isTouchDevice }} />
+                </div>
+                {!isTouchDevice ? (
+                    <CursorEffect isStuck={isStuck} cursorCords={cursorCords} />
+                ) : null}
             </div>
-            {!isTouchDevice ? (
-                <CursorEffect isStuck={isStuck} cursorCords={cursorCords} />
-            ) : null}
-        </div>
+        </SmoothScroll>
     );
 }
 

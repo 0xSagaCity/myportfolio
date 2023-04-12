@@ -35,7 +35,6 @@
 }
 
 .app {
-    min-height: 100vh;
     font-family: var(--font);
     background-color: hsla(var(--co-primary), 100%);
     font-weight: var(--fw-reg);

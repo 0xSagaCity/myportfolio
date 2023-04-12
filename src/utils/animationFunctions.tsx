@@ -13,9 +13,9 @@ export function cursorElementEnter(
     isStuck: animStuckType,
     itemToggleRef: itemRefType,
     customProperties: Object = {},
-    isTouchDevice: boolean,
+    isTouchDevice: boolean
 ) {
-    if(!isTouchDevice) {
+    if (!isTouchDevice) {
         const toggleRect = itemToggleRef.current?.getBoundingClientRect();
         gsap.to(".cursor--outer", {
             height: toggleRect?.height,
@@ -33,9 +33,9 @@ export function cursorElementEnter(
 export function cursorElementLeave(
     isStuck: animStuckType,
     customProperties: Object = {},
-    isTouchDevice: boolean,
+    isTouchDevice: boolean
 ) {
-    if(!isTouchDevice) {
+    if (!isTouchDevice) {
         isStuck.current = false;
         gsap.to(".cursor--outer", {
             height: "40px",

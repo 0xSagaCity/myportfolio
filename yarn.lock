@@ -372,6 +372,11 @@
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.4.0.tgz#74935d538e4df8893e47831a7aea362f295bcd39"
   integrity sha512-BJ9SxXux8zAg991UmT8slpwpsd31K1dHHbD3Ba4VzD+liLQ4WAMSxQp2d2ZPRPfN0jN2NPRowcSSoM7lCaF08Q==
 
+"@studio-freight/lenis@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@studio-freight/lenis/-/lenis-1.0.6.tgz#d22494bc1c137ba0854398d251a6c871a18a529b"
+  integrity sha512-g/cTDwra/6WsCGK6KTyfOlTAwJA5xFCJtRFNGM+Ge/oIOg2emLJKV+yTFATekjuCX4r7W5tcBp8LcQ2b+P6yuQ==
+
 "@types/history@^4.7.11":
   version "4.7.11"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"

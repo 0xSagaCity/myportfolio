@@ -1,0 +1,26 @@
+import Lenis from "@studio-freight/lenis";
+import { useEffect, useRef } from "react";
+
+export function SmoothScroll({
+    children,
+}: {
+    children: JSX.Element[] | JSX.Element;
+}): JSX.Element {
+    const smoothScrollEffectId = useRef(0);
+
+    function raf(time: any) {
+        const lenis = new Lenis();
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    useEffect(() => {
+        lenis.on("scroll", (e) => {
+            console.log(e);
+        });
+
+        smoothScrollEffectId.current = requestAnimationFrame(raf);
+        return () => cancelAnimationFrame(smoothScrollEffectId.current);
+    }, []);
+    return <div>{children}</div>;
+}
