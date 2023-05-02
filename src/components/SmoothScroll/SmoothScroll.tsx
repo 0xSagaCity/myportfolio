@@ -9,8 +9,6 @@ export function SmoothScroll({
     const smoothScrollEffectId = useRef(0);
     const lenis = new Lenis({
         lerp: 0.08,
-        smoothTouch: true,
-        touchMultiplier: 3,
     });
 
     function raf(time: any) {

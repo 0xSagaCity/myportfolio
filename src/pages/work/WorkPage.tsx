@@ -80,6 +80,7 @@ function Project({
                     <a
                         className="project-live--container"
                         href={project.linkLive}
+                        target="_blank"
                     >
                         <span>Live</span>
                         <span className="link-indicator">↗</span>
@@ -87,6 +88,7 @@ function Project({
                     <a
                         className="project-code--container"
                         href={project.linkSource}
+                        target="_blank"
                     >
                         <span>Github</span>
                         <span className="link-indicator">↗</span>

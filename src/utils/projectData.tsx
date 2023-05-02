@@ -12,10 +12,10 @@ export const projectData = [
     {
         title: "Froots Interface",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
-        linkSource: "https://www.example.com/projectone",
-        linkLive: "https://www.example.com/projectone",
-        thumbnail: "https://i.imgur.com/Cfix2HO.png",
+            "The Froots Interface project is a UI design for an imaginary e-commerce website that sells fruits, with the playfulness of the name Froots reflected in the design. It is built using Framer Motion, React, and CSS, and features smooth animations.",
+        linkSource: "https://github.com/0xSagaCity/Froots",
+        linkLive: "https://0xsagacity.github.io/Froots/",
+        thumbnail: "https://i.imgur.com/FRVzu1m.png",
         icons: [
             {
                 name: "React",
@@ -38,10 +38,10 @@ export const projectData = [
     {
         title: "Multiplayer Tic Tac Toe",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
+            "This is a multiplayer Tic Tac Toe project that uses PeerJS for peer-to-peer communication. The project is built with React, PeerJS, GSAP, and SASS. The game allows two players to compete against each other in a game of Tic Tac Toe in real-time. GSAP is used for animations, while SASS is used for styling.",
         linkSource: "https://www.example.com/projectone",
-        linkLive: "https://www.example.com/projectone",
-        thumbnail: "https://i.imgur.com/rdgFfTq.png",
+        linkLive: "https://multiplayer-tic-tac-toe.surge.sh/",
+        thumbnail: "https://i.imgur.com/n5fmZDR.png",
         icons: [
             {
                 name: "SASS",
@@ -68,9 +68,10 @@ export const projectData = [
     {
         title: "Tea Manufacturer",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
-        linkSource: "https://www.example.com/projectone",
-        linkLive: "https://www.example.com/projectone",
+            "This is a tea manufacturer's homepage designed with a parallax effect. The page is built using React, CSS, and Framer Motion to create an engaging and immersive user experience. Visitors can learn about the tea manufacturer and their products through the visually stunning parallax effect.",
+        linkSource:
+            "https://github.com/0xSagaCity/Tea-Manufacturer-React-Animations/",
+        linkLive: "https://tea-manufacturer.surge.sh/",
         thumbnail: "https://i.imgur.com/KiaPH95.png",
         icons: [
             {

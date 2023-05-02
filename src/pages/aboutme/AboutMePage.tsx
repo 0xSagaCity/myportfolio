@@ -209,7 +209,11 @@ export function AboutMePage() {
                             <div className="date-line"></div>
                             <div className="date-container">
                                 <div className="date-blip"></div>
-                                <span className="date-text">28-11-2022</span>
+                                <span className="date-text">
+                                    {new Date()
+                                        .toLocaleDateString("en-GB")
+                                        .replace(/\//g, "-")}
+                                </span>
                             </div>
                             <span className="hex-text">
                                 77-68-6F-20-61-6D-20-69-3F

@@ -64,6 +64,7 @@ export function SocialBar() {
                         title={iconTitles[index]}
                         className="social-icon-wrapper"
                         href={iconLinks[index]}
+                        target="_blank"
                     >
                         {icon}
                     </a>
