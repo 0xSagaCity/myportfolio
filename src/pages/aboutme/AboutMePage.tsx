@@ -111,7 +111,7 @@ export function AboutMePage() {
                 </div>
                 <h2 className="aboutme-title">
                     <span className="overflow-wrapper">
-                        <span className="greeting-english">Hello </span>
+                        <span className="greeting-english">Hello</span>
                     </span>
                     <span className="overflow-wrapper">
                         <span className="greeting-hindi">/ नमस्ते</span>,
@@ -133,7 +133,7 @@ export function AboutMePage() {
                     The web should feel magical because of its immense power. I
                     help do just that. I like to leverage my skillset for
                     building cohesive, efficient web apps that have
-                    <span className="speak-emp"> beautiful </span>interfaces.
+                    <span className="speak-emp"> beautiful</span> interfaces.
                 </p>
             </section>
             <section className="aboutme-connect">
@@ -141,16 +141,14 @@ export function AboutMePage() {
                     <div className="connect-left">
                         <div className="connect-text">
                             I am a web developer with a strong foundation in web
-                            technologies and a passion for experimentation and
-                            design. My expertise in JavaScript and React, along
-                            with my mastery of HTML and CSS, allows me to create
+                            technologies and a love for experimentation and
+                            design. I like poking around in JavaScript and
+                            React, along with HTML and CSS, I like to create
                             visually stunning and functional web applications
                             that engage users. My love for typography and motion
-                            design is evident in my work, as I am well-versed in
-                            Figma and an expert in animating with GSAP. I am a
-                            hardworking and fast learner, who is always looking
-                            to improve my skills and push the boundaries of what
-                            is possible.
+                            design hopefully is evident in my work, as I am also
+                            learning Figma and animations with GSAP and Framer
+                            motion. I am a always looking to improve my skills.
                         </div>
                         <div
                             className="connect-links--container"

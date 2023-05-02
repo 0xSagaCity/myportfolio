@@ -151,7 +151,7 @@
 }
 
 .links-container {
-    height: 48px;
+    height: 64px;
     width: 100%;
     padding: 4px;
 }
@@ -161,7 +161,8 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding-block: 12px;
+    align-items: center;
+    padding-block: 12;
     background: hsla(var(--co-secondary), 90%);
 }
 
