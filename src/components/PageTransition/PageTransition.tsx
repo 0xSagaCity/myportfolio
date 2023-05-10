@@ -1,4 +1,3 @@
-import "./PageTransition.css";
 import { SwitchTransition, Transition } from "react-transition-group";
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
